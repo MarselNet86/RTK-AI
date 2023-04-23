@@ -1,0 +1,40 @@
+CREATE TABLE users (
+  id SERIAL PRIMARY KEY,
+  user_id BIGINT, 
+  referrer_id BIGINT,
+  user_name VARCHAR(30) DEFAULT NULL,
+  user_phone TEXT,
+  registration_date TIMESTAMP DEFAULT NOW()
+);
+
+
+CREATE TABLE providers (
+  id SERIAL PRIMARY KEY,
+  group_link VARCHAR(50)
+  name VARCHAR(50)
+);
+
+CREATE TABLE subscribed_providers (
+ id SERIAL PRIMARY KEY,
+ fk_id INT REFERENCES users(id),
+ subscriptions INT[]
+ 
+ );
+
+CREATE TABLE news (
+  id SERIAL PRIMARY KEY,
+  group_id BIGINT,
+  group_name VARCHAR(50),
+  group_screen_name VARCHAR(50),
+  title VARCHAR(150),
+  post_id BIGINT,
+  stock_post TEXT,
+  ai_post TE
+  media TEXT,
+  date TIMESTAMP, 
+  status VARCHAR(15) DEFAULT 'waiting' NOT NULL
+  
+);
+
+
+
